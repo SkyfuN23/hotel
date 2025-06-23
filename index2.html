@@ -1,89 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LOFT RENTAL - Hospedaje Corporativo Premium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         :root {
-            --primary: #1a365d;
-            --primary-light: #2c5282;
-            --accent: #3182ce;
-            --background: #ffffff;
-            --surface: #f7fafc;
-            --surface-dark: #edf2f7;
-            --text-primary: #2d3748;
-            --text-secondary: #4a5568;
-            --text-muted: #718096;
-            --border: #e2e8f0;
-            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --primary: #ffffff;
+            --secondary: #f8fafc;
+            --accent: #3b82f6;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --dark-lighter: #334155;
+            --text: #ffffff;
+            --text-muted: #94a3b8;
+            --text-light: #cbd5e1;
+            --border: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--text);
             line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--background);
+            overflow-x: hidden;
         }
 
         /* Header */
-        .header {
+        header {
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            width: 100%;
+            /* background: rgba(15, 23, 42, 0.95); */
+            backdrop-filter: blur(20px);
             z-index: 1000;
+            padding: 12px 0;
             transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border);
         }
 
-        .header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .nav-container {
+        .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            height: 80px;
+            align-items: center;
+            padding: 0 20px;
         }
 
         .logo {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
-            letter-spacing: -0.5px;
+            letter-spacing: 0.5px;
         }
 
         .nav-menu {
             display: flex;
+            gap: 40px;
             align-items: center;
-            gap: 2.5rem;
         }
 
         .nav-link {
-            color: var(--text-secondary);
+            color: var(--text-light);
             text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
             position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .nav-link:hover {
@@ -93,11 +90,11 @@
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -8px;
-            left: 50%;
             width: 0;
-            height: 2px;
-            background: var(--accent);
+            height: 1px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--primary);
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
@@ -106,48 +103,39 @@
             width: 100%;
         }
 
-        .cta-btn {
+        .cta-button {
             background: var(--primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            color: var(--dark);
+            padding: 12px 24px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .cta-btn:hover {
-            background: var(--primary-light);
+        .cta-button:hover {
+            background: var(--text-light);
             transform: translateY(-1px);
-            box-shadow: var(--shadow-lg);
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            cursor: pointer;
-        }
-
-        /* Hero Section */
+        /* Hero Section con carrusel */
         .hero {
             position: relative;
             height: 100vh;
-            min-height: 600px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
         }
 
         .hero-slider {
             position: absolute;
             inset: 0;
-            z-index: 1;
+            z-index: 0;
         }
 
         .slide {
@@ -156,393 +144,363 @@
             background-size: cover;
             background-position: center;
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            transition: opacity 1s ease-in-out;
         }
 
         .slide.active {
             opacity: 1;
-        }
-
-        .slide::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(26, 54, 93, 0.8), rgba(49, 130, 206, 0.6));
             z-index: 1;
         }
 
-        .hero-nav {
+        .arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.9);
+            font-size: 2rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
             border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 10px 14px;
             cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-lg);
+            z-index: 2;
+            transition: background 0.3s ease;
+            border-radius: 4px;
         }
 
-        .hero-nav:hover {
-            background: white;
-            transform: translateY(-50%) scale(1.1);
+        .arrow:hover {
+            background: rgba(0, 0, 0, 0.6);
         }
 
-        .hero-nav.prev {
-            left: 2rem;
+        .arrow.left {
+            left: 20px;
         }
 
-        .hero-nav.next {
-            right: 2rem;
+        .arrow.right {
+            right: 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
-            z-index: 5;
-            text-align: center;
-            max-width: 800px;
-            padding: 0 2rem;
-            color: white;
+            z-index: 3;
         }
 
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--primary);
             letter-spacing: -1px;
+            line-height: 1.1;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
         }
 
-        .hero-subtitle {
+        .hero .subtitle {
             font-size: 1.25rem;
+            margin-bottom: 40px;
+            color: var(--text-muted);
             font-weight: 400;
-            opacity: 0.95;
-            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
             line-height: 1.6;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
         }
 
-        .hero-actions {
+        .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            margin-top: 40px;
         }
 
         .btn-primary {
-            background: white;
-            color: var(--primary);
-            box-shadow: var(--shadow-lg);
+            background: var(--primary);
+            color: var(--dark);
+            padding: 16px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .btn-primary:hover {
+            background: var(--text-light);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
         }
 
         .btn-secondary {
             background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: var(--text-light);
+            padding: 16px 32px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-slider,
+        .slide,
+        .hero::before {
+            pointer-events: none;
+        }
+
+        .arrow {
+            pointer-events: auto;
         }
 
         /* Sections */
         .section {
-            padding: 6rem 0;
+            padding: 120px 0;
+            background: var(--dark);
         }
 
         .section:nth-child(even) {
-            background: var(--surface);
+            background: var(--dark-light);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 20px;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 80px;
         }
 
         .section-title {
             font-size: 2.5rem;
             font-weight: 300;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
+            color: var(--primary);
+            margin-bottom: 20px;
             letter-spacing: -0.5px;
         }
 
         .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
+            font-size: 1.1rem;
+            color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto;
-            line-height: 1.7;
+            font-weight: 400;
+            line-height: 1.6;
         }
 
-        /* Services */
+        /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 40px;
+            margin-top: 80px;
         }
 
         .service-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            background: var(--dark-lighter);
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: left;
             border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--accent);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .service-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-
-        .service-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Companies */
-        .companies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .company-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 120px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-        }
-
-        .company-card:hover {
-            transform: translateY(-3px);
+            border-color: var(--primary);
             box-shadow: var(--shadow-lg);
         }
 
-        .company-logo {
-            max-width: 120px;
-            max-height: 60px;
-            object-fit: contain;
-            filter: grayscale(100%) opacity(0.7);
-            transition: all 0.3s ease;
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
         }
 
-        .company-card:hover .company-logo {
-            filter: grayscale(0%) opacity(1);
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Companies Section */
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 80px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+
+        .company-card {
+            /* background: var(--dark-lighter); */
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+        }
+
+        .company-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .company-logo-full {
+            max-height: 70px;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+
+        .company-card:hover .company-logo-full {
             transform: scale(1.05);
         }
+
+
 
         /* Gallery */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            gap: 30px;
+            margin-top: 80px;
         }
 
         .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
             aspect-ratio: 4/3;
-            background: var(--surface-dark);
-            border-radius: 12px;
+            background: var(--dark-lighter);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
             font-weight: 500;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover::before {
-            opacity: 0.1;
+            padding: 20px;
         }
 
         .gallery-item:hover {
+            border-color: var(--primary);
             transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-            color: var(--text-primary);
         }
 
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
+        /* Contact CTA */
+        .contact-cta {
+            background: var(--dark-light);
+            border-top: 1px solid var(--border);
             text-align: center;
+            padding: 100px 0;
         }
 
-        .cta-title {
+        .contact-content h2 {
             font-size: 2.5rem;
             font-weight: 300;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
+            color: var(--primary);
             letter-spacing: -0.5px;
         }
 
-        .cta-description {
-            font-size: 1.125rem;
-            opacity: 0.95;
-            margin-bottom: 2rem;
+        .contact-content p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: var(--text-muted);
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.7;
-        }
-
-        .cta-button {
-            background: white;
-            color: var(--primary);
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
+            line-height: 1.6;
         }
 
         /* Footer */
-        .footer {
-            background: var(--text-primary);
-            color: white;
+        footer {
+            background: var(--dark);
+            border-top: 1px solid var(--border);
             text-align: center;
-            padding: 3rem 0;
+            padding: 40px 0;
         }
 
-        .footer-content {
-            opacity: 0.8;
-            font-size: 0.95rem;
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @media (min-width: 1100px) {
+            .companies-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
-        /* Mobile Responsiveness */
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow-lg);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-            }
-
-            .nav-menu.open {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero-nav {
                 display: none;
             }
 
-            .hero-title {
+            .hero h1 {
                 font-size: 2.5rem;
+
             }
 
-            .hero-actions {
+            .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
 
             .section {
-                padding: 4rem 0;
+                padding: 80px 0;
             }
 
             .section-title {
@@ -551,6 +509,7 @@
 
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .companies-grid {
@@ -561,22 +520,14 @@
                 grid-template-columns: 1fr;
             }
 
-            .nav-container {
-                padding: 0 1rem;
+            .section-header {
+                margin-bottom: 60px;
             }
 
-            .container {
-                padding: 0 1rem;
-            }
-
-            .hero-content {
-                padding: 0 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .companies-grid {
-                grid-template-columns: 1fr;
+            .services-grid,
+            .companies-grid,
+            .gallery-grid {
+                margin-top: 60px;
             }
         }
 
@@ -585,31 +536,40 @@
             scroll-behavior: smooth;
         }
 
-        /* Loading animation */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
 
-        .loading .company-logo {
-            animation: pulse 2s infinite;
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Professional touches */
+        .section-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--primary);
+            margin: 0 auto 30px;
         }
     </style>
 </head>
+
 <body>
-    <header class="header">
-        <nav class="nav-container">
+    <header>
+        <div class="header-content">
             <div class="logo">LOFT RENTAL</div>
-            <div class="nav-menu" id="navMenu">
+            <nav class="nav-menu">
                 <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#propuestas" class="nav-link">Propuestas</a>
                 <a href="#empresas" class="nav-link">Clientes</a>
-                <a href="#galeria" class="nav-link">Instalaciones</a>
-                <a href="#contacto" class="cta-btn">Contacto</a>
-            </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
+                <a href="#galeria" class="nav-link">Galería</a>
+                <a href="#contacto" class="cta-button">Contacto</a>
+            </nav>
+        </div>
     </header>
 
     <section class="hero">
@@ -617,63 +577,59 @@
             <div class="slide active" style="background-image: url('img/foto1.jpg');"></div>
             <div class="slide" style="background-image: url('img/foto2.jpg');"></div>
             <div class="slide" style="background-image: url('img/foto3.jpg');"></div>
+            <!-- Agregá más imágenes si querés -->
+            <button class="arrow left">&#10094;</button>
+            <button class="arrow right">&#10095;</button>
         </div>
-        <button class="hero-nav prev" id="prevSlide">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="hero-nav next" id="nextSlide">
-            <i class="fas fa-chevron-right"></i>
-        </button>
         <div class="hero-content">
-            <h1 class="hero-title">Hospedaje Corporativo de Excelencia</h1>
-            <p class="hero-subtitle">Soluciones integrales de alojamiento profesional para empresas en Bahía Blanca. Garantizamos comodidad, eficiencia y tranquilidad para sus equipos de trabajo.</p>
-            <div class="hero-actions">
-                <a href="#servicios" class="btn btn-primary">
-                    <i class="fas fa-arrow-down"></i>
-                    Explorar Servicios
-                </a>
-                <a href="https://wa.me/5492915365201" class="btn btn-secondary">
-                    <i class="fab fa-whatsapp"></i>
-                    Solicitar Cotización
-                </a>
+            <h1>Hospedaje y Logística Corporativa</h1>
+            <p class="subtitle">Soluciones integrales de alojamiento para empresas en Bahía Blanca. Servicios
+                profesionales que garantizan comodidad, eficiencia y tranquilidad para equipos de trabajo.</p>
+            <div class="hero-buttons">
+                <a href="#servicios" class="btn-primary">Explorar Servicios</a>
+                <a href="https://wa.me/5492915365201" class="btn-secondary">Solicitar Cotización</a>
             </div>
         </div>
     </section>
 
+
     <section class="section" id="servicios">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title">Servicios Especializados</h2>
-                <p class="section-subtitle">Ofrecemos soluciones completas de hospedaje corporativo, diseñadas para satisfacer las necesidades específicas de equipos profesionales y garantizar su bienestar durante estadías prolongadas.</p>
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Servicios Integrales</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Ofrecemos soluciones completas de hospedaje corporativo, diseñadas para
+                    satisfacer las necesidades específicas de equipos de trabajo y garantizar su bienestar durante
+                    estadías prolongadas.</p>
             </div>
+
             <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3 class="service-title">Alojamiento Corporativo</h3>
-                    <p class="service-description">Departamentos ejecutivos, casas corporativas y habitaciones premium seleccionadas estratégicamente para garantizar máxima comodidad y funcionalidad.</p>
+                <div class="service-card animate-on-scroll">
+                    <!-- <div class="service-icon">🏢</div> -->
+                    <h3>Alojamiento Corporativo</h3>
+                    <p>Departamentos ejecutivos, casas corporativas y habitaciones de hotel premium seleccionadas
+                        estratégicamente para garantizar comodidad y funcionalidad.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3 class="service-title">Servicio de Alimentación</h3>
-                    <p class="service-description">Servicio completo de alimentación con menús diseñados para trabajadores. Desayuno, almuerzo, merienda y cena con opciones nutricionales balanceadas.</p>
+
+                <div class="service-card animate-on-scroll">
+                    <!-- <div class="service-icon">🍽️</div> -->
+                    <h3>Alimentación</h3>
+                    <p>Servicio completo de alimentación con menús diseñados para trabajadores. Desayuno, almuerzo,
+                        merienda y cena con opciones nutricionales balanceadas.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3 class="service-title">Logística de Transporte</h3>
-                    <p class="service-description">Coordinación integral de traslados locales y de larga distancia. Servicios de transporte ejecutivo y movilidad especializada para personal.</p>
+
+                <div class="service-card animate-on-scroll">
+                    <!-- <div class="service-icon">🚗</div> -->
+                    <h3>Logística de Transporte</h3>
+                    <p>Coordinación integral de traslados locales y de larga distancia. Servicios de taxi ejecutivo y
+                        transporte de personal especializado.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3 class="service-title">Servicios Auxiliares</h3>
-                    <p class="service-description">Lavandería especializada para ropa laboral e indumentaria personal, incluyendo logística de retiro y entrega programada según necesidades.</p>
+
+                <div class="service-card animate-on-scroll">
+                    <!-- <div class="service-icon">🧽</div> -->
+                    <h3>Servicios Auxiliares</h3>
+                    <p>Lavandería especializada para ropa laboral e indumentaria personal, incluyendo logística de
+                        retiro y entrega programada.</p>
                 </div>
             </div>
         </div>
@@ -681,154 +637,85 @@
 
     <section class="section" id="empresas">
         <div class="container">
-            <div class="section-header fade-in">
+            <div class="section-header animate-on-scroll">
                 <h2 class="section-title">Clientes Corporativos</h2>
-                <p class="section-subtitle">Empresas líderes del sector industrial y de servicios confían en nuestras soluciones de hospedaje corporativo para sus operaciones estratégicas en la región.</p>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Empresas líderes del sector industrial y de servicios confían en nuestras
+                    soluciones de hospedaje corporativo para sus operaciones en la región.</p>
             </div>
+
             <div class="companies-grid">
-                <div class="company-card fade-in">
-                    <img src="logos/techint.jpg" alt="Techint" class="company-logo" />
+                <div class="company-card animate-on-scroll">
+                    <img src="logos/techint.jpg" alt="Techint" class="company-logo-full" />
                 </div>
-                <div class="company-card fade-in">
-                    <img src="logos/sacde.png" alt="SACDE" class="company-logo" />
+                <div class="company-card animate-on-scroll">
+                    <img src="logos/sacde.png" alt="SACDE" class="company-logo-full" />
                 </div>
-                <div class="company-card fade-in">
-                    <img src="logos/pampa.png" alt="Pampa Energía" class="company-logo" />
+                <div class="company-card animate-on-scroll">
+                    <img src="logos/pampa.png" alt="Pampa Energía" class="company-logo-full" />
                 </div>
-                <div class="company-card fade-in">
-                    <img src="logos/coarco.png" alt="Coarco" class="company-logo" />
+                <div class="company-card animate-on-scroll">
+                    <img src="logos/coarco.png" alt="Coarco" class="company-logo-full" />
                 </div>
-                <div class="company-card fade-in">
-                    <img src="logos/roggio.svg" alt="Roggio" class="company-logo" />
+                <div class="company-card animate-on-scroll">
+                    <img src="logos/roggio.svg" alt="Roggio" class="company-logo-full" />
                 </div>
-                <div class="company-card fade-in">
-                    <img src="logos/bahisa.png" alt="Bahisa" class="company-logo" />
+                <div class="company-card animate-on-scroll">
+                    <img src="logos/bahisa.png" alt="Bahisa" class="company-logo-full" />
                 </div>
-                <div class="company-card fade-in">
-                    <img src="logos/siemens.png" alt="Siemens" class="company-logo" />
+                <div class="company-card animate-on-scroll">
+                    <img src="logos/siemens.png" alt="Siemens" class="company-logo-full" />
                 </div>
             </div>
+
         </div>
     </section>
 
     <section class="section" id="galeria">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title">Nuestras Instalaciones</h2>
-                <p class="section-subtitle">Espacios cuidadosamente diseñados y equipados para el descanso y bienestar de profesionales y equipos de trabajo en misiones corporativas de larga estadía.</p>
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Instalaciones</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Espacios diseñados específicamente para el descanso y bienestar de
+                    profesionales y equipos de trabajo en misiones corporativas.</p>
             </div>
+
             <div class="gallery-grid">
-                <div class="gallery-item fade-in">
+                <div class="gallery-item animate-on-scroll">
                     <span>Suite Ejecutiva<br>Individual</span>
                 </div>
-                <div class="gallery-item fade-in">
+                <div class="gallery-item animate-on-scroll">
                     <span>Departamento<br>Corporativo</span>
                 </div>
-                <div class="gallery-item fade-in">
-                    <span>Casa para<br>Equipos de Trabajo</span>
+                <div class="gallery-item animate-on-scroll">
+                    <span>Casa para<br>Equipos</span>
                 </div>
-                <div class="gallery-item fade-in">
+                <div class="gallery-item animate-on-scroll">
                     <span>Habitación<br>Premium</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section cta-section" id="contacto">
+    <section class="contact-cta" id="contacto">
         <div class="container">
-            <h2 class="cta-title">Solución Integral para su Empresa</h2>
-            <p class="cta-description">Hospedaje, alimentación, logística y servicios auxiliares. Todo coordinado profesionalmente para que su equipo se concentre en lo verdaderamente importante: el trabajo.</p>
-            <a href="mailto:contacto@loftrental.com" class="cta-button">
-                <i class="fas fa-envelope"></i>
-                Solicitar Información Detallada
-            </a>
+            <div class="contact-content">
+                <h2>Solución Integral para su Empresa</h2>
+                <p>Hospedaje, alimentación, logística y servicios auxiliares. Todo coordinado profesionalmente para que
+                    su equipo se concentre en lo importante: el trabajo.</p>
+                <a href="mailto:contacto@loftrental.com" class="btn-primary">Solicitar Información</a>
+            </div>
         </div>
     </section>
 
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <p>© 2025 Loft Rental - Hospedaje Corporativo Premium - Bahía Blanca, Argentina</p>
-            </div>
+            <p>© 2025 Loft Rental - Hospedaje Corporativo Premium - Bahía Blanca, Argentina</p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('open');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-            });
-        });
-
-        // Header scroll effect
-        const header = document.querySelector('.header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerHeight = 80;
-                    const targetPosition = target.offsetTop - headerHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Hero slider
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        document.getElementById('nextSlide').addEventListener('click', nextSlide);
-        document.getElementById('prevSlide').addEventListener('click', prevSlide);
-
-        // Auto-slide every 6 seconds
-        setInterval(nextSlide, 6000);
-
-        // Intersection Observer for fade-in animations
+        // Smooth scroll animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -837,25 +724,77 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('animated');
                 }
             });
         }, observerOptions);
 
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
 
-        // Add loading class initially and remove after images load
-        document.addEventListener('DOMContentLoaded', () => {
-            document.body.classList.add('loading');
-            
-            // Remove loading class after a short delay
-            setTimeout(() => {
-                document.body.classList.remove('loading');
-            }, 1000);
+        // Header background on scroll
+        // Header background and padding on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 23, 42, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+                header.style.padding = '8px 0';
+            } else {
+                header.style.background = 'rgba(15, 23, 42, 0.95)';
+                header.style.boxShadow = 'none';
+                header.style.padding = '12px 0';
+            }
         });
+
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = 90;
+                    const targetPosition = target.offsetTop - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const next = document.querySelector('.arrow.right');
+        const prev = document.querySelector('.arrow.left');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        next.addEventListener('click', nextSlide);
+        prev.addEventListener('click', prevSlide);
+
+        // Auto-slide every 6 seconds
+        setInterval(nextSlide, 6000);
+
     </script>
 </body>
+
 </html>
