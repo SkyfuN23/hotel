@@ -780,10 +780,13 @@
         }
 
         .modal-slides img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+    width: 100%;
+    max-height: 80vh;
+    object-fit: cover;
+    border-radius: 8px;
+    background: var(--dark-lighter);
+}
+
 
         .modal-prev,
         .modal-next {
@@ -1043,7 +1046,8 @@
     <div id="modalGallery" class="modal-gallery hidden">
         <div class="modal-content">
             <button class="modal-close">&times;</button>
-            <div class="modal-slides" id="modalSlides"></div>
+            <div class="modal-slides" id="modalSlides">
+            </div>
             <button class="modal-prev">&#10094;</button>
             <button class="modal-next">&#10095;</button>
         </div>
@@ -1154,7 +1158,7 @@
         });
 
         const galleryData = {
-            loft: ['img/loft1.jpg', 'img/loft2.jpg', 'img/loft3.jpg'],
+            loft: ['img/foto (1).jpg', 'img/foto (2).jpg', 'img/foto (3).jpg'],
             victoria: ['img/victoria1.jpg', 'img/victoria2.jpg'],
             otras: ['img/otras1.jpg', 'img/otras2.jpg', 'img/otras3.jpg']
         };
