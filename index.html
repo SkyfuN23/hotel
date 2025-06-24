@@ -780,12 +780,12 @@
         }
 
         .modal-slides img {
-    width: 100%;
-    max-height: 80vh;
-    object-fit: cover;
-    border-radius: 8px;
-    background: var(--dark-lighter);
-}
+            width: 100%;
+            max-height: 80vh;
+            object-fit: cover;
+            border-radius: 8px;
+            background: var(--dark-lighter);
+        }
 
 
         .modal-prev,
@@ -808,37 +808,38 @@
         .modal-next {
             right: 10px;
         }
+
         .ver-mas {
-    display: inline-block;
-    margin-top: 0.5rem;
-    font-size: 0.85rem;
-    color: var(--accent);
-    font-weight: 400;
-}
-.modal-thumbnails {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 400;
+        }
 
-.modal-thumbnails img {
-    width: 60px;
-    height: 40px;
-    object-fit: cover;
-    border: 2px solid transparent;
-    border-radius: 4px;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: all 0.2s ease;
-}
+        .modal-thumbnails {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
 
-.modal-thumbnails img.active {
-    border-color: var(--accent);
-    opacity: 1;
-}
+        .modal-thumbnails img {
+            width: 60px;
+            height: 40px;
+            object-fit: cover;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.2s ease;
+        }
 
+        .modal-thumbnails img.active {
+            border-color: var(--accent);
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -1022,17 +1023,20 @@
                 <p class="section-subtitle">Espacios diseñados específicamente para el descanso y bienestar de
                     profesionales y equipos de trabajo en misiones corporativas.</p>
             </div>
-<div class="gallery-grid">
-    <div class="gallery-item animate-on-scroll" data-gallery="loft" style="background-image: url('img/foto (1).jpg');">
-        <span>Loft Rental<br><small class="ver-mas">Ver imágenes</small></span>
-    </div>
-    <div class="gallery-item animate-on-scroll" data-gallery="victoria" style="background-image: url('img/foto (2).jpg');">
-        <span>Hotel Victoria<br><small class="ver-mas">Ver imágenes</small></span>
-    </div>
-    <div class="gallery-item animate-on-scroll" data-gallery="otras" style="background-image: url('img/foto (3).jpg');">
-        <span>Otras Unidades<br><small class="ver-mas">Ver imágenes</small></span>
-    </div>
-</div>
+            <div class="gallery-grid">
+                <div class="gallery-item animate-on-scroll" data-gallery="loft"
+                    style="background-image: url('img/foto (1).jpg');">
+                    <span>Loft Rental<br><small class="ver-mas">Ver imágenes</small></span>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-gallery="victoria"
+                    style="background-image: url('img/foto (2).jpg');">
+                    <span>Hotel Victoria<br><small class="ver-mas">Ver imágenes</small></span>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-gallery="otras"
+                    style="background-image: url('img/foto (3).jpg');">
+                    <span>Otras Unidades<br><small class="ver-mas">Ver imágenes</small></span>
+                </div>
+            </div>
 
         </div>
     </section>
@@ -1066,15 +1070,15 @@
         <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" alt="WhatsApp">
     </a>
 
-<div id="modalGallery" class="modal-gallery hidden">
-    <div class="modal-content">
-        <button class="modal-close">&times;</button>
-        <div class="modal-slides" id="modalSlides"></div>
-        <div class="modal-thumbnails" id="modalThumbnails"></div>
-        <button class="modal-prev">&#10094;</button>
-        <button class="modal-next">&#10095;</button>
+    <div id="modalGallery" class="modal-gallery hidden">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-slides" id="modalSlides"></div>
+            <div class="modal-thumbnails" id="modalThumbnails"></div>
+            <button class="modal-prev">&#10094;</button>
+            <button class="modal-next">&#10095;</button>
+        </div>
     </div>
-</div>
 
 
 
@@ -1196,31 +1200,33 @@
         function openGallery(type) {
             currentGallery = galleryData[type];
             currentIndex = 0;
-            showSlide(currentIndex);
+            showModalSlide(currentIndex);
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
 
-function showSlide(index) {
-    modalSlides.innerHTML = `<img src="${currentGallery[index]}" alt="Foto">`;
-    renderThumbnails();
-}
 
-function renderThumbnails() {
-    const modalThumbnails = document.getElementById('modalThumbnails');
-    modalThumbnails.innerHTML = '';
+        function showModalSlide(index) {
+            modalSlides.innerHTML = `<img src="${currentGallery[index]}" alt="Foto">`;
+            renderThumbnails();
+        }
 
-    currentGallery.forEach((imgSrc, i) => {
-        const thumb = document.createElement('img');
-        thumb.src = imgSrc;
-        thumb.classList.toggle('active', i === currentIndex);
-        thumb.addEventListener('click', () => {
-            currentIndex = i;
-            showSlide(currentIndex);
-        });
-        modalThumbnails.appendChild(thumb);
-    });
-}
+        function renderThumbnails() {
+            const modalThumbnails = document.getElementById('modalThumbnails');
+            modalThumbnails.innerHTML = '';
+
+            currentGallery.forEach((imgSrc, i) => {
+                const thumb = document.createElement('img');
+                thumb.src = imgSrc;
+                thumb.classList.toggle('active', i === currentIndex);
+                thumb.addEventListener('click', () => {
+                    currentIndex = i;
+                    showModalSlide(currentIndex);
+
+                });
+                modalThumbnails.appendChild(thumb);
+            });
+        }
 
 
         document.querySelectorAll('.gallery-item').forEach(item => {
@@ -1232,13 +1238,14 @@ function renderThumbnails() {
 
         document.querySelector('.modal-next').addEventListener('click', () => {
             currentIndex = (currentIndex + 1) % currentGallery.length;
-            showSlide(currentIndex);
+            showModalSlide(currentIndex); // ✅ Correcto
         });
 
         document.querySelector('.modal-prev').addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-            showSlide(currentIndex);
+            showModalSlide(currentIndex); // ✅ Correcto
         });
+
 
         document.querySelector('.modal-close').addEventListener('click', () => {
             modal.classList.add('hidden');
