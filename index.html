@@ -815,6 +815,29 @@
     color: var(--accent);
     font-weight: 400;
 }
+.modal-thumbnails {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.modal-thumbnails img {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}
+
+.modal-thumbnails img.active {
+    border-color: var(--accent);
+    opacity: 1;
+}
 
     </style>
 </head>
@@ -1043,15 +1066,16 @@
         <img src="https://icongr.am/fontawesome/whatsapp.svg?size=24&color=ffffff" alt="WhatsApp">
     </a>
 
-    <div id="modalGallery" class="modal-gallery hidden">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-slides" id="modalSlides">
-            </div>
-            <button class="modal-prev">&#10094;</button>
-            <button class="modal-next">&#10095;</button>
-        </div>
+<div id="modalGallery" class="modal-gallery hidden">
+    <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-slides" id="modalSlides"></div>
+        <div class="modal-thumbnails" id="modalThumbnails"></div>
+        <button class="modal-prev">&#10094;</button>
+        <button class="modal-next">&#10095;</button>
     </div>
+</div>
+
 
 
 
@@ -1177,9 +1201,27 @@
             document.body.style.overflow = 'hidden';
         }
 
-        function showSlide(index) {
-            modalSlides.innerHTML = `<img src="${currentGallery[index]}" alt="Foto">`;
-        }
+function showSlide(index) {
+    modalSlides.innerHTML = `<img src="${currentGallery[index]}" alt="Foto">`;
+    renderThumbnails();
+}
+
+function renderThumbnails() {
+    const modalThumbnails = document.getElementById('modalThumbnails');
+    modalThumbnails.innerHTML = '';
+
+    currentGallery.forEach((imgSrc, i) => {
+        const thumb = document.createElement('img');
+        thumb.src = imgSrc;
+        thumb.classList.toggle('active', i === currentIndex);
+        thumb.addEventListener('click', () => {
+            currentIndex = i;
+            showSlide(currentIndex);
+        });
+        modalThumbnails.appendChild(thumb);
+    });
+}
+
 
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', () => {
