@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LOFT RENTAL - Soluciones corporativas</title>
+    <title>W. LUCANERA - Soluciones corporativas</title>
     <meta name="description"
         content="Hospedaje corporativo y soluciones logísticas para empresas en Bahía Blanca. Alojamiento, transporte, comidas y más.">
     <link rel="icon" href="favicon.ico" />
@@ -782,7 +782,7 @@
         .modal-slides img {
             width: 100%;
             max-height: 80vh;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 8px;
             background: var(--dark-lighter);
         }
@@ -840,13 +840,26 @@
             border-color: var(--accent);
             opacity: 1;
         }
+
+        .modal-thumbnails {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.modal-thumbnails img {
+    flex: 0 0 auto;
+}
+
     </style>
 </head>
 
 <body>
     <header>
         <div class="header-content">
-            <div class="logo">LOFT RENTAL</div>
+            <div class="logo">W. LUCANERA</div>
             <nav class="nav-menu">
                 <a href="#servicios" class="nav-link">Servicios</a>
                 <a href="#empresas" class="nav-link">Clientes</a>
@@ -1025,15 +1038,15 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item animate-on-scroll" data-gallery="loft"
-                    style="background-image: url('img/foto (1).jpg');">
+                    style="background-image: url('img/foto (3).jpg');">
                     <span>Loft Rental<br><small class="ver-mas">Ver imágenes</small></span>
                 </div>
                 <div class="gallery-item animate-on-scroll" data-gallery="victoria"
-                    style="background-image: url('img/foto (2).jpg');">
+                    style="background-image: url('img/victoria2.jpg');">
                     <span>Hotel Victoria<br><small class="ver-mas">Ver imágenes</small></span>
                 </div>
                 <div class="gallery-item animate-on-scroll" data-gallery="otras"
-                    style="background-image: url('img/foto (3).jpg');">
+                    style="background-image: url('img/marti1.jpg');">
                     <span>Otras Unidades<br><small class="ver-mas">Ver imágenes</small></span>
                 </div>
             </div>
@@ -1186,9 +1199,18 @@
         });
 
         const galleryData = {
-            loft: ['img/foto (1).jpg', 'img/foto (2).jpg', 'img/foto (3).jpg', 'img/foto (4).jpg', 'img/foto (5).jpg'],
-            victoria: ['img/victoria1.jpg', 'img/victoria2.jpg'],
-            otras: ['img/otras1.jpg', 'img/otras2.jpg', 'img/otras3.jpg']
+            loft: [
+                'img/foto (1).jpg', 'img/foto (2).jpg', 'img/foto (3).jpg', 'img/foto (4).jpg', 'img/foto (5).jpg',
+                'img/foto (6).jpg', 'img/foto (7).jpg', 'img/foto (8).jpg', 'img/foto (9).jpg', 'img/foto (10).jpg',
+                'img/foto (11).jpg', 'img/foto (12).jpg', 'img/foto (13).jpg', 'img/foto (14).jpg', 'img/foto (15).jpg',
+                'img/foto (16).jpg', 'img/foto (17).jpg', 'img/foto (18).jpg', 'img/foto (19).jpg', 'img/foto (20).jpg',
+                'img/foto (21).jpg', 'img/foto (22).jpg', 'img/foto (23).jpg', 'img/foto (24).jpg', 'img/foto (25).jpg',
+                'img/foto (26).jpg', 'img/foto (27).jpg', 'img/foto (28).jpg', 'img/foto (29).jpg', 'img/foto (30).jpg',
+                'img/foto (31).jpg', 'img/foto (32).jpg', 'img/foto (33).jpg', 'img/foto (34).jpg', 'img/foto (35).jpg',
+                'img/foto (36).jpg'
+            ],
+            victoria: ['img/victoria2.jpg', 'img/victoria1.jpg', 'img/victoria3.jpg', 'img/victoria4.jpg', 'img/victoria5.jpg', 'img/victoria6.jpg', 'img/victoria7.jpg', 'img/victoria8.jpg', 'img/victoria9.jpg', 'img/victoria10.jpg'],
+            otras: ['img/marti1.jpg', 'img/marti2.jpg', 'img/marti3.jpg']
         };
 
         let currentGallery = [];
